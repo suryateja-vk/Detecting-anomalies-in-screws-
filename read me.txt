@@ -1,0 +1,18 @@
+Import the necessary libraries
+Import the images from the directory using listdir function
+Convert or read images to lumpy array by using cv.imread()
+Resize the given image numpy array using cv.resize()
+Append the image to the X array and also append 1 if it is good else 0 for the damaged ones
+As the data set is more skewed towards the good screw we need to randomly insert images which are damaged or duplicate the damaged images to reduce the skewness
+Convert the list to the numpy array and also convert the y list to categorical list
+Split the data into train set and validation set
+ImageDataGenerator is used for the augmentation of the data which may help in improve robustness of the model by transforming the data
+Then setting up the model
+resnet50 is used as the base model of the convolution neural Network and after flattening the model then  added dense layers which has the relu activation function and dropout layers which help in regularisation which helps in reduction of over fitting
+ compiled the model with adam as the optimizer , loss is categorical crossentropy and metrics is Accuracy
+Model is being fit using the train_generator which returns the augmented train set of data and set epochs to 250 and validation set Is set to X_val, y_val
+Test data is  converted into numpy array and resized and normalised the test images data
+Converted test list to numpy array and reshaped it
+And predicted the values using the model.predict
+Then converted the categorical values to an single list
+Created a data frame which contains id and the predicted values and saved it
